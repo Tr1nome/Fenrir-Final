@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News
+{% endblock %}
+
+{% block body %}
+	<section class="blog-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 blog-posts">
+					<div class="blog-post featured-post">
+						<img src="/images/news/{{ news.filename}}" alt="">
+						<div class="post-date">{{ news.createdAt | date('\\L\\e\\ d/m/Y')}}</div>
+						<h3>{{ news.title }}</h3>
+						<div class="post-metas">
+							<img style="border-radius:50%;width:20px;height:20px;margin:0px;" src="/images/users/{{news.creator.filename}}"/>
+							<div class="post-meta">Par
+								{{ news.creator.username }}</div>
+
+						</div>
+						<p>{{ news.content }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	<h1>Création de compte</h1>
+	<div class="container">
+		{{ include('user/_form.html.twig') }}
+	</div>
+	<a href="{{ path('user_index') }}">back to list</a>
+{% endblock %}

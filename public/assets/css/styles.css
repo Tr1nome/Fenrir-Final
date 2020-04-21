@@ -315,3 +315,93 @@ a:hover {
 .ftco-footer .logo a {
     color: #fff;
 }
+
+.blog-section {
+    background: #1c1c1c;
+}
+.spad {
+    padding-top: 106px;
+    padding-bottom: 106px;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px){
+.blog-section .blog-posts {
+    margin-bottom: 0;
+}
+}
+.blog-post.featured-post, .blog-post.review-post, .blog-post.single-post {
+    margin-bottom: 80px;
+}
+
+.blog-post .post-date {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 16px;
+    margin-bottom: 25px;
+    background: #10ddb4;
+}
+
+.blog-post .post-metas {
+    margin-bottom: 30px;
+}
+
+.blog-post .post-metas .post-meta {
+    position: relative;
+    display: inline-block;
+    color: #8c8c8c;
+    font-size: 14px;
+    padding-right: 15px;
+    margin-right: 14px;
+    margin-bottom: 5px;
+}
+
+.site-btn {
+    display: inline-block;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    min-width: 164px;
+    padding: 21px 47px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: #10ddb4;
+    color: #161616;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+.blog-post img {
+    margin-bottom: 34px;
+}
+img {
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.blog-post h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+.blog-post.featured-post p, .blog-post.review-post p, .blog-post.single-post p {
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.blog-post h4 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.blog-post .read-more {
+    font-size: 14px;
+    font-weight: 700;
+    color: #10ddb4;
+}
