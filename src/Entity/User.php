@@ -59,6 +59,7 @@ class User implements UserInterface,\Serializable
     {
         $this->formations = new ArrayCollection();
         $this->news = new ArrayCollection();
+        $this->courses = new ArrayCollection();
     }
 
 /**
@@ -93,6 +94,11 @@ class User implements UserInterface,\Serializable
      * @ORM\OneToMany(targetEntity="App\Entity\News", mappedBy="creator")
      */
     private $news;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Formation", mappedBy="teacher")
+     */
+    private $courses;
 
     public function getId(): ?int
     {
@@ -318,6 +324,37 @@ class User implements UserInterface,\Serializable
             // set the owning side to null (unless already changed)
             if ($news->getCreator() === $this) {
                 $news->setCreator(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Formation[]
+     */
+    public function getCourses(): Collection
+    {
+        return $this->courses;
+    }
+
+    public function addCourse(Formation $course): self
+    {
+        if (!$this->courses->contains($course)) {
+            $this->courses[] = $course;
+            $course->setTeacher($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCourse(Formation $course): self
+    {
+        if ($this->courses->contains($course)) {
+            $this->courses->removeElement($course);
+            // set the owning side to null (unless already changed)
+            if ($course->getTeacher() === $this) {
+                $course->setTeacher(null);
             }
         }
 

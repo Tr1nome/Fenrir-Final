@@ -1,26 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Formation{% endblock %}
+{% block title %}Formation
+{% endblock %}
 
 {% block body %}
-    <h1>Formation</h1>
+	<section class="blog-section spad">
+		<div class="container">
+			<h1 style="color:white;margin-bottom:30px;">{{ formation.name }}</h1>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="blog-post">
+						<img src="/images/formations/{{ formation.filename }}" alt="">
+						<div class="post-date">{{ formation.createdAt | date('\\L\\e\\ d/m/Y')}}</div>
+						<h4>{{ formation.name }}</h4>
+						<div class="post-metas">
+							<img style="border-radius:50%;width:20px;height:20px;margin:0px;" src="/images/users/{{ formation.teacher.filename}}"/>
+							<div class="post-meta">Par
+								{{ formation.teacher.username }}
+							</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ formation.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ formation.name }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('formation_index') }}">back to list</a>
-
-    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
-
-    {{ include('formation/_delete_form.html.twig') }}
-{% endblock %}
+						</div>
+						<p style="color:white;">{{ formation.description }}</p>
+						{% if app.user and app.user in formation %}
+							<a href="{{ path('formation_register', {'id': formation.id })}}" class="read-more">S'inscrire</a>
+						{% elseif app.user and app.user not in formation %}
+							<button title="Vous êtes déjà inscrit à cette formation" disabled="disabled" class="btn btn-primary">S'inscrire</button>
+						{% else %}
+							<button title="Vous devez être un membre adhérent pour avoir accès à cette formation" disabled="disabled" class="btn btn-primary">S'inscrire</button>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endblock %}

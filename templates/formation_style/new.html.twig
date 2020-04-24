@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New FormationStyle{% endblock %}
+
+{% block body %}
+    <h1>Create new FormationStyle</h1>
+
+    {{ include('formation_style/_form.html.twig') }}
+
+    <a href="{{ path('formation_style_index') }}">back to list</a>
+{% endblock %}

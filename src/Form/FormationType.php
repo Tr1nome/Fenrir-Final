@@ -15,7 +15,10 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('imageFile', FileType::class, ['required'=> true])
+            ->add('description')
+            ->add('imageFile', FileType::class, ['required'=> false,'attr'=>['class'=>'file-upload']])
+            ->add('teacher', null, ['label'=>'Formateur'])
+            ->add('style')
             ->add('users',null,['label'=>'Participants','expanded'=>true,'multiple'=>true])
         ;
     }

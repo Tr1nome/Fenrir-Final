@@ -63,6 +63,26 @@ class Formation
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $shDesc;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="courses")
+     */
+    private $teacher;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\FormationStyle", inversedBy="formations")
+     */
+    private $style;
+
 
     public function __construct()
     {
@@ -171,6 +191,54 @@ class Formation
     public function onPreUpdate()
     {
         $this->updatedAt = new \DateTime("now");
+    }
+
+    public function getShDesc(): ?string
+    {
+        return $this->shDesc;
+    }
+
+    public function setShDesc(string $shDesc): self
+    {
+        $this->shDesc = $shDesc;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTeacher(): ?User
+    {
+        return $this->teacher;
+    }
+
+    public function setTeacher(?User $teacher): self
+    {
+        $this->teacher = $teacher;
+
+        return $this;
+    }
+
+    public function getStyle(): ?FormationStyle
+    {
+        return $this->style;
+    }
+
+    public function setStyle(?FormationStyle $style): self
+    {
+        $this->style = $style;
+
+        return $this;
     }
     
 }

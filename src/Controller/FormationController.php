@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Formation;
+use App\Entity\User;
 use App\Form\FormationType;
 use App\Repository\FormationRepository;
 use DateTime;
@@ -91,5 +92,21 @@ class FormationController extends AbstractController
         }
 
         return $this->redirectToRoute('admindashboard');
+    }
+
+    /**
+     * @Route("/{id}/register", name="formation_register", methods={"GET","POST"})
+     */
+    public function register(Formation $formation): Response
+    {
+        $user = $this->getUser();
+        $formation->addUser($user);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->persist($formation);
+        $entityManager->flush();
+        return $this->redirectToRoute('user_show', [
+            'id'=> $user->getId()
+        ]);
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20200421161520 extends AbstractMigration
+final class Version20200422104318 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,9 @@ final class Version20200421161520 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE news ADD filename VARCHAR(255) NOT NULL, ADD created_at DATETIME DEFAULT NULL, ADD updated_at DATETIME DEFAULT NULL');
+        $this->addSql('ALTER TABLE formation ADD style_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE formation ADD CONSTRAINT FK_404021BFBACD6074 FOREIGN KEY (style_id) REFERENCES formation_style (id)');
+        $this->addSql('CREATE INDEX IDX_404021BFBACD6074 ON formation (style_id)');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +32,8 @@ final class Version20200421161520 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE news DROP filename, DROP created_at, DROP updated_at');
+        $this->addSql('ALTER TABLE formation DROP FOREIGN KEY FK_404021BFBACD6074');
+        $this->addSql('DROP INDEX IDX_404021BFBACD6074 ON formation');
+        $this->addSql('ALTER TABLE formation DROP style_id');
     }
 }

@@ -1,4 +1,7 @@
 {{ form_start(form) }}
+{% if formation.filename %}
+<img class ="img-thumbnail avatar" style="width:300px;height:auto;"src="/images/formations/{{ formation.filename }}"/>
+{% endif %}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

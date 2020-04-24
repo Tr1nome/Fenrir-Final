@@ -22,6 +22,11 @@
 .heading-section h2 {
     font-size: 30px;
     font-weight: 700;
+    color:white;
+}
+
+.heading-section p {
+    color:white;
 }
 
 @media (max-width: 991.98px){
@@ -35,6 +40,7 @@
     background: #afa939 !important;
     border: 1px solid #afa939 !important;
     color: #fff !important;
+    font-weight: 600;
 }
 
 .hero-wrap .overlay {
@@ -106,7 +112,7 @@
     z-index: -1;
     content: '';
     height: 140px;
-    background: #afa939;
+    background: #000000;
 }
 
 @media (max-width: 991.98px){
@@ -200,6 +206,10 @@ ol, ul, dl {
     margin-bottom: 1rem;
 }
 
+.navbar-dark .navbar-brand{
+    color:white;
+    font-weight: 700;
+}
 .ftco-footer-social li {
     list-style: none;
     margin: 0 10px 0 0;
@@ -339,7 +349,16 @@ a:hover {
     font-weight: 700;
     padding: 3px 16px;
     margin-bottom: 25px;
-    background: #10ddb4;
+    background: #ffffff;
+}
+
+.post-date-past {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 16px;
+    margin-bottom: 25px;
+    background: #8a8a8a;
 }
 
 .blog-post .post-metas {
@@ -365,7 +384,7 @@ a:hover {
     padding: 21px 47px;
     border-radius: 50px;
     text-transform: uppercase;
-    background: #10ddb4;
+    background: #ffffff;
     color: #161616;
     line-height: 1;
     cursor: pointer;
@@ -401,7 +420,13 @@ img {
 }
 
 .blog-post .read-more {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: underline;
+}
+.read-more-past {
     font-size: 14px;
     font-weight: 700;
-    color: #10ddb4;
+    color: #8a8a8a;
 }

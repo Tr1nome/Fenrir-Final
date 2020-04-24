@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FormationStyle{% endblock %}
+
+{% block body %}
+    <h1>FormationStyle</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation_style.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ formation_style.title }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('formation_style_index') }}">back to list</a>
+
+    <a href="{{ path('formation_style_edit', {'id': formation_style.id}) }}">edit</a>
+
+    {{ include('formation_style/_delete_form.html.twig') }}
+{% endblock %}

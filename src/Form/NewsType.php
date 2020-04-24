@@ -16,7 +16,7 @@ class NewsType extends AbstractType
             ->add('title',null, ['label'=>'Titre de la news'])
             ->add('content',null, ['label'=>'Contenu de la news'])
             ->add('creator', null, ['label'=>'Auteur de la news'] )
-            ->add('imageFile', FileType::class)
+            ->add('imageFile', FileType::class, ['required'=> false])
             ->add('isFirst', null, ['label'=>'Mettre cette news en avant ? (Elle apparaîtra dans le gros bloc dans le module des news, cocher cette case écrasera la précédente news mise en avant)'])
         ;
     }
